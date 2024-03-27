@@ -1,7 +1,7 @@
 <?php
 
 class ErrorController extends Controller {
-    public function index() {
+    public function index() : void {
         $this->view('error', [], false);
     }
 }

@@ -5,7 +5,7 @@ class App {
     private string $method = 'index';
     private array $params = [];
 
-    public function start() {
+    public function start() : void {
         $url = $this->parseUrl();
         $this->defineControllerAndMethod($url);
         $this->isError404($this->controller, $this->method, $this->params);
