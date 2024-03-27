@@ -3,7 +3,7 @@
 class Controller {
     private $modelData;
 
-    private $viewTitle;
+    private string $viewTitle;
 
     protected function view(string $viewName, $modelData = [], bool $useLayout = true) {
         if ($useLayout) require_once "../app/Views/layout.php";
