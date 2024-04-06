@@ -6,7 +6,7 @@ class Controller {
     private string $viewTitle;
 
     protected function view(string $viewName, $modelData = [], bool $useLayout = true) : void {
-        if ($useLayout) require_once "../app/Views/layout.php";
+        if ($useLayout) require_once '../app/Views/layout.php';
         else $this->loadView($viewName, $modelData);
     }
     private function loadView(string $viewName, $modelData) : void {

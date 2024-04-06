@@ -1,2 +1,2 @@
 <h1>Sub-página 2 de teste.</h1>
-<a href="/mvc/public/teste">Voltar à página principal de teste</a>
+<a href="/teste">Voltar à página principal de teste</a>

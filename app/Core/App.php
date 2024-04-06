@@ -5,16 +5,32 @@ class App {
     private string $method = 'index';
     private array $params = [];
 
-    public function start() : void {
-        $url = $this->parseUrl();
+    public function start(bool $useHtaccess) : void {
+        $url = $this->parseUrl($useHtaccess);
+        print_r($url);
         $this->defineControllerAndMethod($url);
         $this->isError404($this->controller, $this->method, $this->params);
         call_user_func_array([new $this->controller, $this->method], $this->params);
     }
 
-    private function parseUrl() : array {
-        if (isset($_GET['url'])) return explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
+    private function parseUrl(bool $useHtaccess) : array {
+        if (!$useHtaccess) return $this->parseUrlWithRequestUri();
+        return $this->parseUrlWithHtaccess();
+    }
+    private function parseUrlWithHtaccess() {
+        if (isset($_GET['url'])) return explode('/', filter_var(trim($_GET['url'], '/'), FILTER_SANITIZE_URL));
         else return [];
+    }
+    private function parseUrlWithRequestUri() {
+        $uri = trim($_SERVER['REQUEST_URI'], '/');
+        if (strpos($uri, 'index.php/') === 0) $uri = substr($uri, strlen('index.php/'));
+        if ($uri === '' || $uri === 'index.php') return [];
+        $uri = explode('/', filter_var($uri, FILTER_SANITIZE_URL));
+        foreach ($uri as $i => $value) {
+            if(str_contains($value, '?')) $uri[$i] = substr($value, 0, strpos($value, '?'));
+            if ($uri[$i] === '') unset($uri[$i]);
+        }
+        return $uri;
     }
     private function defineControllerAndMethod(array $url) : void {
         if (isset($url[0])) {
