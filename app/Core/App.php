@@ -7,7 +7,6 @@ class App {
 
     public function start(bool $useHtaccess) : void {
         $url = $this->parseUrl($useHtaccess);
-        print_r($url);
         $this->defineControllerAndMethod($url);
         $this->isError404($this->controller, $this->method, $this->params);
         call_user_func_array([new $this->controller, $this->method], $this->params);
