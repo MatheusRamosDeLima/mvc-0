@@ -4,6 +4,8 @@ class Controller {
     private $modelData;
 
     private string $viewTitle;
+    private string $viewCss;
+    private string $viewJs;
 
     protected function view(string $viewName, $modelData = [], bool $useLayout = true) : void {
         if ($useLayout) require_once '../app/Views/layout.php';
@@ -16,5 +18,11 @@ class Controller {
     }
     protected function setViewTitle(string $viewTitle) : void {
         $this->viewTitle = $viewTitle;
+    }
+    protected function setViewCss(string $viewCss) : void {
+        $this->viewCss = $viewCss;
+    }
+    protected function setViewJs(string $viewJs) : void {
+        $this->viewJs = $viewJs;
     }
 }

@@ -1,0 +1,30 @@
+:root {
+    --user-div-width: 200px;
+}
+
+.content-title {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.users-div {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 50px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.user-div {
+    width: var(--user-div-width);
+    height: 120px;
+    background-color: rgb(222, 222, 222);
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.364);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,16 +1,95 @@
 :root {
-    --header-height: 100px;
+    --header-height: 80px;
     --footer-height: 40px;
 }
 
 header {
+    width: 100%;
     height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 15px;
+    background-color: #efefef;
+    box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.272);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.h1-link {
+    color: black;
+    text-decoration: none;
+}
+
+#menu-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4.5px;
+}
+
+#menu-button div {
+    height: 3px;
+    width: 30px;
+    background-color: black;
+}
+
+#menu-list {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 0;
+    gap: 40px;
+    position: static;
+    list-style-type: none;
+    background-color: #efefef;
+    padding: 8px;
+    width: 40%;
+    height: calc(100vh - var(--header-height));
+    box-shadow: -2px 2px 4px 1px rgba(0, 0, 0, 0.272);
+}
+#menu-list.visible {
+    display: flex;
+    position: absolute;
+    top: var(--header-height);
+    right: 0;
+}
+
+#menu-list li a {
+    color: #006aff;
 }
 
 main {
+    margin-top: var(--header-height);
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    padding: 8px;
 }
 
 footer {
     height: var(--footer-height);
+    padding: 5px 15px;
+    background-color: #efefef;
+    box-shadow: 0px -2px 4px 1px rgba(0, 0, 0, 0.272);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (min-width: 600px) {
+    #menu-button {
+        display: none;
+    }
+
+    #menu-list, #menu-list.visible {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+        position: static;
+        width: 100%;
+        height: fit-content;
+        box-shadow: 0px 0px 0px 0px;
+    }
 }
