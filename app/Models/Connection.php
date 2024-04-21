@@ -3,6 +3,8 @@
 class Connection {
     private static PDO $instance;
 
+    private function __construct() {}
+
     public static function getConnection():PDO {
         if (!isset(self::$instance)) {
             try {

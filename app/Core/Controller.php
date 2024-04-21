@@ -13,7 +13,6 @@ class Controller {
     }
     private function loadView(string $viewName, $modelData) : void {
         $this->modelData = $modelData;
-        extract($modelData);
         require_once "../app/Views/$viewName.php";
     }
     protected function setViewTitle(string $viewTitle) : void {
