@@ -33,7 +33,7 @@ class App {
     }
     private function defineControllerAndMethod(array $url) : void {
         if (isset($url[0])) {
-            $this->controller = $url[0].'Controller';
+            $this->controller = ucfirst($url[0]).'Controller';
             unset($url[0]);
             if (isset($url[1])) {
                 $this->method = $url[1];
