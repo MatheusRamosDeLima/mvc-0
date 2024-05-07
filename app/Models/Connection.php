@@ -9,7 +9,7 @@ class Connection {
         if (!isset(self::$instance)) {
             try {
                 self::$instance = new PDO(
-                    'sqlite:../app/Database/database.sqlite',
+                    'sqlite:'.__DIR__.'/../Database/database.sqlite',
                     null,
                     null,
                     [ PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ ]
