@@ -8,12 +8,12 @@ class Controller {
     private string $viewJs;
 
     protected function view(string $viewName, $modelData = [], bool $useLayout = true) : void {
-        if ($useLayout) require_once __DIR__.'/../app/Views/layout.php';
+        if ($useLayout) require_once __DIR__.'/../Views/layout.php';
         else $this->loadView($viewName, $modelData);
     }
     private function loadView(string $viewName, $modelData) : void {
         $this->modelData = $modelData;
-        require_once __DIR__."/../app/Views/$viewName.php";
+        require_once __DIR__."/../Views/$viewName.php";
     }
     protected function setViewTitle(string $viewTitle) : void {
         $this->viewTitle = $viewTitle;

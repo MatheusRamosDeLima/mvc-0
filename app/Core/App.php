@@ -62,7 +62,7 @@ class App {
     }
     private function isError404(string $controller, string $method, array $params) : void {
         echo "<h3>Tests in isError404 method!</h3>";
-        $controllerPath = __DIR__."/../app/Controllers/$controller.php";
+        $controllerPath = __DIR__."/../Controllers/$controller.php";
         echo "<p>controller path: $controllerPath</p>";
         if (!file_exists($controllerPath) || !method_exists($controller, $method) || method_exists('Controller', $method) || !$this->isParamsValid($controller, $method, $params) || $method === '__construct') {
             $this->controller = 'ErrorController';
