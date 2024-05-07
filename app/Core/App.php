@@ -6,9 +6,27 @@ class App {
     private array $params = [];
 
     public function start(bool $useHtaccess) : void {
+        echo "<h1>Testes!</h1>";
         $url = $this->parseUrl($useHtaccess);
+        echo "<p>url: $url</p>";
         $this->defineControllerAndMethod($url);
+        echo "<h2>Controller e method antes:</h2>";
+        echo "<p>controller: {$this->controller}</p>";
+        echo "<p>method: {$this->method}</p>";
+        if(!empty($this->params)) {
+            foreach($this->params as $param) {
+                echo "<p>param: {$param}</p>";
+            }
+        }
         $this->isError404($this->controller, $this->method, $this->params);
+        echo "<h2>Controller e method depois:</h2>";
+        echo "<p>controller: {$this->controller}</p>";
+        echo "<p>method: {$this->method}</p>";
+        if(!empty($this->params)) {
+            foreach($this->params as $param) {
+                echo "<p>param: {$param}</p>";
+            }
+        }
         call_user_func_array([new $this->controller, $this->method], $this->params);
     }
 
