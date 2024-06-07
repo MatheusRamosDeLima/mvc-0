@@ -22,13 +22,9 @@ class App {
     }
     private function parseUrlWithRequestUri() {
         $uri = trim($_SERVER['REQUEST_URI'], '/');
-        if (strpos($uri, 'index.php/') === 0) $uri = substr($uri, strlen('index.php/'));
         if ($uri === '' || $uri === 'index.php') return [];
+        if (str_contains($uri, '?')) $uri = trim(substr($uri, 0, strpos($uri, '?')), '/');
         $uri = explode('/', filter_var($uri, FILTER_SANITIZE_URL));
-        foreach ($uri as $i => $value) {
-            if(str_contains($value, '?')) $uri[$i] = substr($value, 0, strpos($value, '?'));
-            if ($uri[$i] === '') unset($uri[$i]);
-        }
         return $uri;
     }
     private function defineControllerAndMethod(array $url) : void {
