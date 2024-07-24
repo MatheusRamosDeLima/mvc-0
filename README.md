@@ -1,5 +1,7 @@
-# MVC
+# MVC - 0
 Este projeto é uma espécie de framework MVC básico puro (total ausência de libs).
+O intuito deste projeto é auxiliar iniciantes na área da web no entendimento essencial da estrutura MVC. Portanto, esse projeto não irá cumprir a melhor execução da estrutura MVC.
+O projeto tem como único objetivo ser de fácil entendimento e aprendizagem!
 ## Utilização
 Para se utilizar ele, basta:
 1. Baixar o projeto;
